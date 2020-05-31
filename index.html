@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+      <head>
+				<meta charset="UTF-8">
+				<title>Bloco de notas</title>
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+				<link rel="stylesheet" href="style.css">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			</head>
+			
+			<body>
+
+				<div id='cancel-confirm'>
+					<p>Deseja deletar essa nota??</p>
+					<button id="confirm-del">Deletar</button>
+					<button id="cancel-del">Cancelar</button>
+				</div>
+
+				<main>
+					<aside id='lateral'>
+						<button id='show-block'>Nova nota >></button>
+						<p class='title' id='list-text'> Lista das notas</p>
+						<div id='lista-geral'>
+
+						</div>
+					</aside>
+				
+					<div id='note-area'>
+						<div class='note' data-id="000000">
+							<div class='note-title'> 
+												Título
+							</div>
+										<button class='delete'>X</button>
+							<p class='note-content'>
+								Use o botao <b>nova nota</b> para criar sua anotação.<br>Delete a nota clicando <b>no X acima</b>.
+							</p>
+						</div>
+					</div>
+				</main>
+
+				<div id='note-creator'>
+				
+					<div id='footer-form'>
+						<form id='note-form'>
+							<label for='titulo' class='note-title'>Nova nota</label><br>
+							<input id='title' type='text' name='titulo' placeholder="Título..." value="Titulo "><br>
+							<label for='conteudo'></label><br>
+							<textarea id='content' type='text' name='conteudo' rows='5' cols="30" placeholder="Escreva aqui..."></textarea>
+						</form>
+						<button id='criar'>Criar nota</button>
+						<button id='cancelar'>Cancelar</button>
+					</div>
+				</div>
+
+				<script type="text/javascript" src="script.js"></script>
+			</body>
+
+
+
+</html>

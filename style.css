@@ -1,0 +1,158 @@
+/* CORES que escolhi: 
+https://coolors.co/738290-191716-d7e0d8-d9c5b2-fffcf7-941c2f
+*/
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #191716;
+	font-family: 'Source Sans Pro', sans-serif;
+	
+}
+
+
+.title {
+	font-family: 'Oxygen', sans-serif;
+}
+
+/* >>>>> Setup da GRID Geral */
+main {
+	display: grid;
+	height: 100vh;
+	grid-template-columns: 150px 3fr;
+	grid-template-areas: 
+        "lateral note-area";
+}
+
+/* >>>> Area Lateral  */
+#lateral {
+	grid-area: lateral;
+	padding: 20px 10px;
+	background-color: #D7E0D8;
+}
+
+#show-block {
+	display: block;
+	margin: 10px auto;
+	width: initial;
+}
+
+#list-text {
+	display: block;
+	text-align: center;
+}
+
+.note-list {
+	text-decoration: underline;
+}
+
+/* >>>> Area das Notas */
+#note-area {
+	grid-area: note-area;
+	padding: 20px;
+	background-color: #FFFCF7;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+	align-content: flex-start;
+}
+
+/* Style CSS de cada nota */
+.note {
+	background-color: #738290;
+	width: 180px;
+	height: 120px;
+	padding: 5px;
+	margin: 10px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px;
+	font-size: 15px;
+	overflow-y: auto;
+	
+}
+
+.note-title {
+	display: inline-block;
+	font-family: 'Oxygen', sans-serif;
+}
+
+.delete {
+	display: block;
+	float: right;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 10px;
+}
+
+#cancel-confirm {
+	background-color: hsla(0, 79%, 72%, 0.3);
+	display: block;
+	position: absolute;
+	width: 60%;
+	height: 30%;
+	padding: 90px;
+	margin: 150px;
+	top: 100px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px;
+	font-size: 15px;
+	z-index: -1;
+}
+
+/*  Footer e area de criacao de notas */
+
+#footer-form {
+	display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 70% auto auto;
+	grid-gap: 20px;
+	place-items: center;
+}
+
+#note-form{
+    place-self: center end;
+    grid-row: 1/4;
+}
+
+#content {
+    resize: none;
+}
+
+#criar {
+    place-self: end start;
+    grid-row: 1/3;
+}
+
+#cancelar {
+    place-self: end start;
+    grid-row: 3/4;
+}
+
+
+#note-creator{
+	position: absolute;
+	left: 150px;
+	bottom: 150px;
+	padding: 30px;
+	background-color: #60B2A6;
+	box-shadow: 5px 5px 10px;
+	opacity: 0;
+	z-index: -1;
+
+}
+
+.box-transition {
+	animation: show-up 0.5s forwards;
+	z-index: 1 !important;
+}
+
+@keyframes show-up {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
