@@ -1,12 +1,7 @@
 /* TO DO
-
-1) Tornar lista lateral em links que destacam a nota
-
-2) Melhorar o Layout CSS geral
-
-3) Melhorar o gerador de ID das notas
-5) Evitar as variaveis globais
-
+0) Tornar Responsivo
+1) Melhorar o gerador de ID das notas
+2) Evitar as variaveis globais
 */
 
 const botaoCriar = document.getElementById('criar')
@@ -16,17 +11,33 @@ const noteTitle = document.getElementById('title')
 const noteContent = document.getElementById('content')
 const confirmDel = document.getElementById('confirm-del')
 const cancelDel = document.getElementById('cancel-del')
-const noteList = []
+const noteList = [{id: 10000, title: "Modelo"}]
+
+// Function para destacar nota escolhida pela lista lateral
+
+const destacNota = function() {
+  let listId = event.target.getAttribute('data-list-id')
+  let noteSelected = document.getElementById(listId)
+
+  noteSelected.classList.add('note-selected')
+
+  noteSelected.addEventListener('webkitAnimationEnd', function(){
+     noteSelected.classList.remove('note-selected') } )
+}
+
 
 // Function - Mostrar lista de notas
 const showNoteList = function () {
   listaGeral.innerHTML = ''
 
   for (let i = 0; i < noteList.length; i++) {
-    const parag = document.createElement('P')
+    const parag = document.createElement('A')
     parag.setAttribute('class', 'note-list')
+    parag.setAttribute('data-list-id', noteList[i].id)
+    parag.setAttribute('href', `#${noteList[i].id}`)
     parag.innerText = noteList[i].title
     listaGeral.appendChild(parag)
+    parag.addEventListener('click', destacNota)
   }
 }
 
@@ -68,7 +79,7 @@ var noteParent
 var choice
 
 const selectNote = () => {
-  noteId = event.target.parentElement.getAttribute('data-id')
+  noteId = event.target.parentElement.getAttribute('id')
   noteParent = event.target.parentElement
   console.log(noteId)
   console.log(noteParent)
@@ -78,7 +89,6 @@ const selectNote = () => {
 const removeNote = function () {
   choice = event.target.id
   console.log(choice)
-  console.log(event.target.parentElement)
 
   if (choice === 'confirm-del') {
     for (let i = 0; i < noteList.length; i++) {
@@ -127,7 +137,7 @@ const criaNota = function () {
   nota.id = Math.round(100000 * Math.random())
   nota.title = noteTitle.value
   nota.content = noteContent.value
-  div1.setAttribute('data-id', nota.id)
+  div1.setAttribute('id', nota.id)
 
   noteList.push(nota)
 

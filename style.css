@@ -1,17 +1,46 @@
-/* CORES que escolhi: 
-https://coolors.co/738290-191716-d7e0d8-d9c5b2-fffcf7-941c2f
+/* Paleta de CORES:
+https://coolors.co/e98074-e85a4f-114b5f-8e8d8a-1a1e23-faf0ca
 */
 
+:root {
+	--primary-color: #565554;
+	--primary-color-alt: #868383;
+	--secondary-color: #FAF0CA;
+	--text-color: #1A1E23;
+	--note-color: #F9DC5C;
+	--button-primary: #FBE689;
+	--button-alert: #E98074;
+}
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	color: #191716;
+	color: var(--text-color);
 	font-family: 'Source Sans Pro', sans-serif;
-	
 }
 
+button {
+	border: 0px;
+	padding: 3px;
+	position: relative;
+	box-shadow: 1px 2px 5px;
+	margin: 0px 4px;
+	font-weight: bolder;
+}
+
+button:active {
+	box-shadow: 1px 2px 4px;
+	top: 1px;
+}
+
+button:hover {
+	box-shadow: -2px -2px 4px;
+}
+
+button:focus {
+	outline: none;
+}
 
 .title {
 	font-family: 'Oxygen', sans-serif;
@@ -29,30 +58,62 @@ main {
 /* >>>> Area Lateral  */
 #lateral {
 	grid-area: lateral;
-	padding: 20px 10px;
-	background-color: #D7E0D8;
+	padding: 20px 0px;
+	background-color: var(--primary-color);
+}
+
+#lateral-nav{
+	position: sticky;
+	top: 20px;
 }
 
 #show-block {
 	display: block;
-	margin: 10px auto;
+	margin: 15px auto;
+	padding: 5px;
 	width: initial;
+	background-color: var(--button-primary);
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: bolder;
 }
 
 #list-text {
 	display: block;
 	text-align: center;
+	width: 100%;
+	margin: 35px 0px 20px 0px;
+	background-color: var(--secondary-color);
+}
+
+#lista-geral{
+	color: var(--secondary-color);
+	text-decoration: underline;
 }
 
 .note-list {
-	text-decoration: underline;
+	display: block;
+	margin: 5px 15px;
+	color: var(--secondary-color);
+	font-size: 16px;
+}
+
+#autor {
+	position: fixed;
+	bottom: 0px;
+	background-color: var(--text-color);
+	color: var(--secondary-color);
+	width: 150px;
+	height: 5%;
+	text-align: center;
+	padding-top: 8px;
 }
 
 /* >>>> Area das Notas */
 #note-area {
 	grid-area: note-area;
 	padding: 20px;
-	background-color: #FFFCF7;
+	background-color: var(--secondary-color);
 	display: flex;
 	flex-flow: row wrap;
 	align-items: flex-start;
@@ -61,38 +122,55 @@ main {
 
 /* Style CSS de cada nota */
 .note {
-	background-color: #738290;
-	width: 180px;
-	height: 120px;
+	background-color: var(--note-color);
+	width: 200px;
+	height: 160px;
 	padding: 5px;
 	margin: 10px;
 	border-radius: 10px;
 	box-shadow: 2px 2px 5px;
 	font-size: 15px;
 	overflow-y: auto;
-	
 }
+
+.note-selected {
+	animation: shine 5s;
+}
+
+@keyframes shine {
+	0% {
+	 box-shadow: -5px 6px 10px 4px;
+	}
+}
+
 
 .note-title {
 	display: inline-block;
 	font-family: 'Oxygen', sans-serif;
+	font-size: 16px;
+	margin: 2px 0 9px 0px;
 }
 
 .delete {
 	display: block;
 	float: right;
     font-family: 'Oxygen', sans-serif;
-    font-size: 10px;
+	font-size: 12px;
+	background-color: var(--secondary-color);
+	width: 1.5em;
+	border-radius: 5px;
 }
 
+/* Delete box  */
+
 #cancel-confirm {
-	background-color: hsla(0, 79%, 72%, 0.3);
+	background-color: hsla(0, 79%, 72%, 0.815);
 	display: block;
-	position: absolute;
-	width: 60%;
-	height: 30%;
+	position: fixed;
+	width: 400px;
+	height: 250px;
 	padding: 90px;
-	margin: 150px;
+	margin-left: 150px;
 	top: 100px;
 	border-radius: 10px;
 	box-shadow: 2px 2px 5px;
@@ -100,7 +178,33 @@ main {
 	z-index: -1;
 }
 
+#confirm-del, #cancel-del {
+	font-size: 16px;
+	width: 80px;
+	margin: 30px px;
+	border-radius: 10px;
+}
+
+#confirm-del{
+	background-color: var(--secondary-color);
+}
+
+#cancel-del {
+	background-color: var(--button-alert);
+}
+
 /*  Footer e area de criacao de notas */
+
+#note-creator{
+	position: fixed;
+	left: 150px;
+	bottom: 150px;
+	padding: 30px;
+	background-color: var(--primary-color-alt);
+	box-shadow: 5px 5px 10px;
+	opacity: 0;
+	z-index: -1;
+}
 
 #footer-form {
 	display: grid;
@@ -121,25 +225,18 @@ main {
 
 #criar {
     place-self: end start;
-    grid-row: 1/3;
+	grid-row: 1/2;
+	background-color: var(--button-primary);
+	border-radius: 5px;
+	font-size: 16px;
 }
 
 #cancelar {
-    place-self: end start;
-    grid-row: 3/4;
-}
-
-
-#note-creator{
-	position: absolute;
-	left: 150px;
-	bottom: 150px;
-	padding: 30px;
-	background-color: #60B2A6;
-	box-shadow: 5px 5px 10px;
-	opacity: 0;
-	z-index: -1;
-
+	background-color: var(--button-alert);
+	place-self: end start;
+	grid-row: 2/3;
+	border-radius: 5px;
+	font-size: 15px;
 }
 
 .box-transition {

@@ -12,28 +12,31 @@
 <body>
 
     <div id='cancel-confirm'>
-        <p>Deseja deletar essa nota??</p>
+        <p class="note-title">Deseja deletar essa nota??</p>
         <button id="confirm-del">Deletar</button>
         <button id="cancel-del">Cancelar</button>
     </div>
 
     <main>
         <aside id='lateral'>
-            <button id='show-block'>Nova nota >></button>
-            <p class='title' id='list-text'> Lista das notas</p>
-            <div id='lista-geral'>
-
-            </div>
+            <nav id='lateral-nav'>
+                <button id='show-block'>Nova nota >></button>
+                <p class='title' id='list-text'> Lista das notas</p>
+                <div id='lista-geral'>
+                </div>
+                <a id='autor'>Le-santos GitHub</a>
+            </nav>
+            
         </aside>
 
         <div id='note-area'>
-            <div class='note' data-id="000000">
+            <div class='note' id="10000">
                 <div class='note-title'>
-                    Título
+                    Modelo 
                 </div>
                 <button class='delete'>X</button>
                 <p class='note-content'>
-                    Use o botao <b>nova nota</b> para criar sua anotação.<br>Delete a nota clicando <b>no X acima</b>.
+                    Use o botao <b>nova nota</b> para criar sua anotação.<br> Para deletar, clique <b>no X</b>.
                 </p>
             </div>
         </div>
